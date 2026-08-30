@@ -10,7 +10,7 @@ Tasarim, scroll video animasyonu ve tum gorseller Claude Design + ChatGPT ile ur
 https://muzafferkadir.github.io/claude-design-coffee-shop-template/
 
 ## Video
-Nasil yapildigini anlatan video ➤ https://www.youtube.com/@muzafferkadir
+Nasil yapildigini anlatan video ➤ https://youtu.be/cqfNtvzIApA
 
 ## Icerik
 - `index.html` — tek dosyalik site
