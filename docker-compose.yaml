@@ -1,8 +1,33 @@
 services:
+  build:
+    image: node:22-alpine
+    working_dir: /app
+    restart: "no"
+    command:
+      - sh
+      - -ec
+      - |
+        wget -q -O /tmp/source.tar.gz https://codeload.github.com/muzafferkadir/code-to-vps/tar.gz/refs/heads/main
+        tar -xzf /tmp/source.tar.gz --strip-components=1 -C /app
+        npm ci
+        npm run build -- --outDir /site
+    volumes:
+      - site:/site
   web:
-    build:
-      context: https://github.com/muzafferkadir/code-to-vps.git#main
-    image: kivam-kahve:latest
+    image: nginx:stable-alpine
+    depends_on:
+      build:
+        condition: service_completed_successfully
     restart: unless-stopped
     ports:
       - "80:80"
+    volumes:
+      - site:/usr/share/nginx/html:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  site:
