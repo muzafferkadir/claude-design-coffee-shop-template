@@ -4,7 +4,7 @@
 - IP: `72.61.179.158`
 - MCP project: `kivam-kahve`
 - İlk yayın adresi: `http://72.61.179.158`
-- Repo: `https://github.com/muzafferkadir/code-to-vps`
+- Repo: `https://github.com/muzafferkadir/claude-design-coffee-shop-template`
 - Aktif config snapshot: kökteki `docker-compose.yaml` ve `Dockerfile`
 - Bu klasördeki `docker-compose.yaml`, SSH ile dosya aktarımına dayanan alternatif config'dir.
 
