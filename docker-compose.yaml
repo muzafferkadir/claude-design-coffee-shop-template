@@ -1,0 +1,8 @@
+services:
+  web:
+    build:
+      context: https://github.com/muzafferkadir/code-to-vps.git#main
+    image: kivam-kahve:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"

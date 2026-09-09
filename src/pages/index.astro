@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kıvam Kahve — Karaköy</title>
+<meta name="description" content="Kıvam Kahve — Karaköy'de üçüncü nesil kahve evi. Tek kökenli çekirdekler, közde demleme. Her gün 08.00 – 23.00.">
+<meta property="og:title" content="Kıvam Kahve — Kıvamında bir fincan.">
+<meta property="og:description" content="Tek kökenli çekirdekleri közde, sabırla demliyoruz. Karaköy, İstanbul.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/video/kivam-pour-poster.jpg">
+<meta name="theme-color" content="#F7EDDE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,300..800;1,300..800&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Kıvam design tokens ===================================== */
+:root{
+/* fonts */
+--font-display:"Petrona",Georgia,"Times New Roman",serif;
+--font-body:"DM Sans","Helvetica Neue",Arial,sans-serif;
+--font-mono:"DM Mono",ui-monospace,SFMono-Regular,monospace;
+/* warm neutrals */
+--cream-50:#FFFCF6;--cream-100:#FAF3E7;--cream-200:#F7EDDE;--cream-300:#EFE2CD;--cream-400:#E3D2B8;
+/* ink */
+--ink-900:#221F13;--ink-800:#2A2617;--ink-700:#3A3524;--ink-500:#6B6450;--ink-300:#9A9382;
+/* terracotta / kiremit */
+--terracotta-700:#9E3D1F;--terracotta-600:#C0512C;--terracotta-500:#CF6238;--terracotta-300:#E1906B;--terracotta-100:#F4D6C5;
+/* clay & peach */
+--clay-500:#D9744A;--peach-300:#E9A583;--peach-100:#F6DCC9;
+/* mustard / hardal */
+--mustard-600:#D69A23;--mustard-500:#E9B23C;--mustard-300:#F2CE7C;--mustard-100:#FAECC8;
+/* lavender / grape */
+--lavender-200:#DCD2EE;--lavender-300:#C8B8E3;--lavender-400:#AC96D4;--grape-500:#8E72C7;--grape-700:#6B4FA3;
+/* olive */
+--olive-600:#4A5232;--olive-500:#5B6337;--olive-300:#8D9463;
+/* photo-matched blocks */
+--photo-olive:#4D4D29;--photo-terracotta:#C74718;--photo-mustard:#F7B32A;
+/* semantic surfaces */
+--surface-page:var(--cream-200);--surface-card:var(--cream-50);--surface-warm:var(--terracotta-600);
+/* semantic text */
+--text-body:var(--ink-800);--text-heading:var(--ink-900);--text-muted:var(--ink-500);
+--text-eyebrow:var(--terracotta-600);--text-link:var(--terracotta-600);--text-link-hover:var(--terracotta-700);
+/* lines & actions */
+--border-hairline:rgba(34,31,19,.14);--border-strong:var(--ink-800);
+--action-primary:var(--terracotta-600);--action-primary-hover:var(--terracotta-700);--action-primary-text:var(--cream-50);
+/* type scale */
+--fs-eyebrow:12px;--fs-body-sm:14px;--fs-caption:13px;--fs-micro:11px;
+--fw-body-medium:500;--fw-body-bold:700;
+--tracking-eyebrow:0.14em;--tracking-button:0.08em;
+/* spacing */
+--space-2:8px;--space-3:12px;--space-4:16px;
+/* radii */
+--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-pill:999px;--radius-arch:220px;
+--radius-button:var(--radius-sm);--radius-tile:var(--radius-lg);
+/* shadows */
+--shadow-card:0 1px 2px rgba(34,31,19,.05);--shadow-lift:0 8px 24px -12px rgba(34,31,19,.22);
+/* motion */
+--ease-out-soft:cubic-bezier(.22,.61,.36,1);--dur-fast:120ms;--dur-base:200ms;--press-scale:0.97;
+--focus-ring:var(--grape-500);
+}
+
+/* ===== base ==================================================== */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--surface-page);color:var(--text-body);
+  font:400 16px/1.55 var(--font-body);-webkit-font-smoothing:antialiased;text-wrap:pretty;overflow-x:hidden}
+h1,h2,h3{font-family:var(--font-display);color:var(--text-heading);letter-spacing:-.02em;line-height:.98;font-weight:800;margin:0}
+p{margin:0}
+a{color:var(--text-link);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--text-link-hover)}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+img{max-width:100%}
+section[id]{scroll-margin-top:16px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ===== components ============================================= */
+/* Logotype */
+.logo{display:inline-flex;flex-direction:column;align-items:center;gap:6px;color:var(--ink-900)}
+.logo--cream{color:var(--cream-100)}
+.logo__name{font-family:var(--font-display);font-weight:800;font-size:30px;line-height:.92;letter-spacing:.01em}
+.logo__tag{display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:9px;letter-spacing:.2em;font-weight:500}
+.logo__tag::before,.logo__tag::after{content:"";width:14px;height:1px;background:currentColor;opacity:.6}
+
+/* Eyebrow */
+.eyebrow{display:block;font-family:var(--font-body);font-size:var(--fs-eyebrow);font-weight:var(--fw-body-bold);
+  letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--text-eyebrow)}
+.eyebrow--cream{color:var(--cream-200)}
+.eyebrow--ink{color:var(--ink-500)}
+
+/* Badge */
+.badge{display:inline-flex;align-items:center;gap:var(--space-2);padding:6px 12px;border-radius:var(--radius-pill);
+  font-family:var(--font-body);font-size:var(--fs-micro);font-weight:var(--fw-body-medium);
+  letter-spacing:var(--tracking-eyebrow);text-transform:uppercase}
+.badge--chip{padding:8px 12px;border-radius:var(--radius-sm)}
+.badge--cream{background:var(--cream-50);color:var(--ink-800)}
+.badge--mustard{background:var(--mustard-500);color:var(--ink-900)}
+.badge--lavender{background:var(--lavender-300);color:var(--ink-900)}
+
+/* Button */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-3);
+  font-family:var(--font-body);font-weight:var(--fw-body-medium);letter-spacing:var(--tracking-button);
+  text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:var(--radius-button);
+  padding:14px 22px;font-size:var(--fs-caption);border:1px solid transparent;
+  transition:color var(--dur-fast) var(--ease-out-soft),background-color var(--dur-fast) var(--ease-out-soft),transform var(--dur-base) var(--ease-out-soft)}
+.btn--lg{padding:18px 28px;font-size:var(--fs-body-sm)}
+.btn--primary{background:var(--action-primary);color:var(--action-primary-text)}
+.btn--primary:hover{background:var(--action-primary-hover);color:var(--action-primary-text)}
+.btn--outline{background:transparent;color:var(--ink-800);border-color:var(--border-strong)}
+.btn--outline:hover{background:var(--cream-300);color:var(--ink-800)}
+.btn:active{transform:scale(var(--press-scale))}
+.btn__ic{width:16px;height:16px;flex:0 0 auto;display:inline-flex}
+.btn__ic svg{width:100%;height:100%}
+.btn--arrow:hover .btn__ic--r{transform:translateX(3px)}
+.btn__ic--r{transition:transform var(--dur-base) var(--ease-out-soft)}
+
+/* PhotoPanel */
+.photo{position:relative;overflow:hidden;background:var(--cream-300)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.photo__ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--font-mono);
+  font-size:var(--fs-caption);letter-spacing:.12em;text-transform:uppercase;color:rgba(34,31,19,.5)}
+
+/* menu tile media with graceful placeholder */
+.tile-media{position:relative;aspect-ratio:1/1;display:block}
+.tile-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1}
+.tile-media__ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--font-mono);
+  font-size:var(--fs-micro);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,252,246,.7)}
+.tile-media--dark .tile-media__ph{color:rgba(34,31,19,.5)}
+
+.band{height:clamp(180px,22vw,280px);overflow:hidden;position:relative;background:var(--cream-300)}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.band__ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--font-mono);
+  font-size:var(--fs-caption);letter-spacing:.12em;text-transform:uppercase;color:rgba(34,31,19,.5)}
+</style>
+</head>
+<body>
+<div style="background:var(--surface-page);font-family:var(--font-body);color:var(--text-body)">
+
+<!-- ===== NAV ===== -->
+<nav id="nav" style="display:flex;align-items:center;justify-content:space-between;gap:32px;padding:24px clamp(20px,5vw,64px)">
+  <ul style="display:flex;gap:32px;list-style:none;margin:0;padding:0;flex:1">
+    <li><a href="#menu" style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta-600);text-decoration:none;border-bottom:1.5px solid var(--terracotta-600);padding-bottom:3px">Menü</a></li>
+    <li><a href="#surec" style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-800);text-decoration:none">Süreç</a></li>
+    <li><a href="#hakkimizda" style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-800);text-decoration:none">Hakkımızda</a></li>
+    <li><a href="#konum" style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-800);text-decoration:none">Konum</a></li>
+  </ul>
+  <span class="logo"><span class="logo__name">KIVAM</span><span class="logo__tag">KARAKÖY</span></span>
+  <div style="flex:1;display:flex;justify-content:flex-end;align-items:center;gap:24px">
+    <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink-500)">08.00 – 23.00</span>
+    <a href="https://instagram.com/kivamkahve" target="_blank" rel="noopener" style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-800);text-decoration:none">@kivamkahve</a>
+  </div>
+</nav>
+
+<!-- ===== HERO (scroll-scrub) ===== -->
+<section id="surec" style="position:relative;height:720vh" data-track>
+<div data-stage style="position:sticky;top:0;height:100vh;overflow:hidden">
+  <div data-plate style="position:absolute;top:0;right:0;width:58%;height:100%;background:var(--cream-300);border-radius:var(--radius-arch) 0 0 0"></div>
+  <video data-video src="assets/video/kivam-pour-2.mp4" poster="assets/video/kivam-pour-poster.jpg" muted playsinline preload="auto" style="position:absolute;top:0;right:0;width:58%;height:100%;object-fit:cover;border-radius:var(--radius-arch) 0 0 0;background:var(--cream-300);opacity:0;transition:opacity 600ms var(--ease-out-soft)"></video>
+  <div data-scrim style="position:absolute;inset:0;background:linear-gradient(100deg,var(--cream-200) 0%,var(--cream-200) 34%,rgba(247,237,222,.72) 42%,rgba(247,237,222,0) 52%)"></div>
+  <div data-mark style="display:none;position:absolute;top:20px;left:0;right:0;z-index:4;justify-content:center;pointer-events:none">
+    <div style="background:var(--cream-50);border-radius:999px;padding:10px 26px;box-shadow:var(--shadow-card)">
+      <span class="logo"><span class="logo__name">KIVAM</span><span class="logo__tag">KARAKÖY</span></span>
+    </div>
+  </div>
+  <div data-column style="position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:clamp(24px,8vh,120px) clamp(20px,5vw,64px) 46px;min-height:0;pointer-events:none">
+    <div data-copy style="display:flex;flex-direction:column;gap:22px;max-width:min(46vw,560px);pointer-events:auto;min-height:0">
+      <span class="eyebrow">Kıvam Kahve</span>
+      <div style="display:flex"><span class="badge badge--cream" style="transform:rotate(-2deg)">Her gün 08.00 – 23.00 · Karaköy</span></div>
+      <div>
+        <h1 data-title style="font-family:var(--font-display);font-weight:800;font-size:clamp(38px,min(5.6vw,8.4vh),82px);line-height:.98;letter-spacing:-.02em;color:var(--ink-900);max-width:11ch;margin:0">Kıvamında bir fincan.</h1>
+        <svg width="164" height="16.4" viewBox="0 0 120 12" preserveAspectRatio="none" fill="none" style="display:block;overflow:visible;margin-top:20px"><path d="M2 8C10 2.5 16 2.5 24 7.5S38 12 46 7 60 1.5 68 6.5 82 11.5 90 6.5 104 1.5 118 7" stroke="var(--lavender-400)" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </div>
+      <p data-lead style="font-size:18px;line-height:1.55;max-width:32ch;color:var(--ink-800);margin:0">Tek kökenli çekirdekleri közde, sabırla demliyoruz. Acelesi olmayan bir kahve deneyimi.</p>
+      <div data-cta style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+        <a href="#menu" class="btn btn--lg btn--primary btn--arrow">Menüyü gör<span class="btn__ic btn__ic--r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+        <a href="#konum" class="btn btn--lg btn--outline"><span class="btn__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>Yol tarifi</a>
+      </div>
+    </div>
+    <div data-cards style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;pointer-events:auto;flex:0 0 auto">
+      <div data-card style="display:flex;flex-direction:column;gap:8px;transition:opacity 320ms var(--ease-out-soft),transform 320ms var(--ease-out-soft);opacity:0;transform:translateY(22px)"><div style="display:flex;flex-direction:column;gap:8px;background:var(--cream-50);border-radius:var(--radius-md);padding:18px;box-shadow:var(--shadow-card);flex:1">
+        <span style="font-family:var(--font-display);font-weight:800;font-size:34px;line-height:.9;color:var(--terracotta-600)">01</span>
+        <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-900)">Çekirdek</span>
+        <p style="font-size:13px;line-height:1.5;color:var(--ink-800);margin:0;flex:1">Tek kökenli, taze kavrulmuş. Her parti elle ayıklanır.</p><div style="height:2px;background:rgba(34,31,19,.12);border-radius:999px;overflow:hidden"><div data-fill style="height:100%;width:0;background:var(--terracotta-600)"></div></div>
+      </div></div>
+      <div data-card style="display:flex;flex-direction:column;gap:8px;transition:opacity 320ms var(--ease-out-soft),transform 320ms var(--ease-out-soft);opacity:0;transform:translateY(22px)"><div style="display:flex;flex-direction:column;gap:8px;background:var(--cream-50);border-radius:var(--radius-md);padding:18px;box-shadow:var(--shadow-card);flex:1">
+        <span style="font-family:var(--font-display);font-weight:800;font-size:34px;line-height:.9;color:var(--terracotta-600)">02</span>
+        <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-900)">Öğütme</span>
+        <p style="font-size:13px;line-height:1.5;color:var(--ink-800);margin:0;flex:1">Siparişten hemen önce, taş değirmende ince öğütülür.</p><div style="height:2px;background:rgba(34,31,19,.12);border-radius:999px;overflow:hidden"><div data-fill style="height:100%;width:0;background:var(--terracotta-600)"></div></div>
+      </div></div>
+      <div data-card style="display:flex;flex-direction:column;gap:8px;transition:opacity 320ms var(--ease-out-soft),transform 320ms var(--ease-out-soft);opacity:0;transform:translateY(22px)"><div style="display:flex;flex-direction:column;gap:8px;background:var(--cream-50);border-radius:var(--radius-md);padding:18px;box-shadow:var(--shadow-card);flex:1">
+        <span style="font-family:var(--font-display);font-weight:800;font-size:34px;line-height:.9;color:var(--terracotta-600)">03</span>
+        <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-900)">Demleme</span>
+        <p style="font-size:13px;line-height:1.5;color:var(--ink-800);margin:0;flex:1">Közde, düşük ateşte, köpüğü kaçırmadan.</p><div style="height:2px;background:rgba(34,31,19,.12);border-radius:999px;overflow:hidden"><div data-fill style="height:100%;width:0;background:var(--terracotta-600)"></div></div>
+      </div></div>
+      <div data-card style="display:flex;flex-direction:column;gap:8px;transition:opacity 320ms var(--ease-out-soft),transform 320ms var(--ease-out-soft);opacity:0;transform:translateY(22px)"><div style="display:flex;flex-direction:column;gap:8px;background:var(--cream-50);border-radius:var(--radius-md);padding:18px;box-shadow:var(--shadow-card);flex:1">
+        <span style="font-family:var(--font-display);font-weight:800;font-size:34px;line-height:.9;color:var(--terracotta-600)">04</span>
+        <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-900)">Servis</span>
+        <p style="font-size:13px;line-height:1.5;color:var(--ink-800);margin:0;flex:1">Bol köpüklü, yanında bir bardak su ve lokumla.</p><div style="height:2px;background:rgba(34,31,19,.12);border-radius:999px;overflow:hidden"><div data-fill style="height:100%;width:0;background:var(--terracotta-600)"></div></div>
+      </div></div>
+    </div>
+  </div>
+  <div data-rail style="position:absolute;right:clamp(20px,3vw,36px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+    <span data-stagelabel style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-800);background:var(--cream-50);padding:6px 10px;border-radius:999px;box-shadow:var(--shadow-card);white-space:nowrap">Cezve ısınıyor</span>
+    <div style="display:flex;flex-direction:column;gap:7px;align-items:flex-end">
+      <span data-tick style="width:16px;height:2px;background:rgba(34,31,19,.18);border-radius:999px;transition:width 200ms var(--ease-out-soft),background-color 200ms var(--ease-out-soft)"></span>
+      <span data-tick style="width:16px;height:2px;background:rgba(34,31,19,.18);border-radius:999px;transition:width 200ms var(--ease-out-soft),background-color 200ms var(--ease-out-soft)"></span>
+      <span data-tick style="width:16px;height:2px;background:rgba(34,31,19,.18);border-radius:999px;transition:width 200ms var(--ease-out-soft),background-color 200ms var(--ease-out-soft)"></span>
+      <span data-tick style="width:16px;height:2px;background:rgba(34,31,19,.18);border-radius:999px;transition:width 200ms var(--ease-out-soft),background-color 200ms var(--ease-out-soft)"></span>
+      <span data-tick style="width:16px;height:2px;background:rgba(34,31,19,.18);border-radius:999px;transition:width 200ms var(--ease-out-soft),background-color 200ms var(--ease-out-soft)"></span>
+      <span data-tick style="width:16px;height:2px;background:rgba(34,31,19,.18);border-radius:999px;transition:width 200ms var(--ease-out-soft),background-color 200ms var(--ease-out-soft)"></span>
+      <span data-tick style="width:16px;height:2px;background:rgba(34,31,19,.18);border-radius:999px;transition:width 200ms var(--ease-out-soft),background-color 200ms var(--ease-out-soft)"></span>
+      <span data-tick style="width:16px;height:2px;background:rgba(34,31,19,.18);border-radius:999px;transition:width 200ms var(--ease-out-soft),background-color 200ms var(--ease-out-soft)"></span>
+    </div>
+    <span data-percent style="font-family:var(--font-mono);font-size:11px;color:var(--ink-500)">00%</span>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(34,31,19,.1)"><div data-bar style="height:100%;width:0;background:var(--mustard-500);transition:width 90ms linear"></div></div>
+  <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:18px;pointer-events:none"><div data-hint style="display:flex;flex-direction:row-reverse;align-items:center;gap:10px;transition:opacity 240ms var(--ease-out-soft)">
+    <span style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-500)">Kaydır</span>
+    <span style="width:26px;height:1px;background:var(--ink-300)"></span>
+  </div></div>
+</div>
+</section>
+
+<!-- ===== MENÜ ===== -->
+<section id="menu" style="padding:clamp(48px,7vw,96px) clamp(20px,5vw,64px)">
+<div style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+      <span class="eyebrow">Menü</span>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,3.6vw,44px);line-height:.98;letter-spacing:-.02em;color:var(--ink-900);margin:0;max-width:18ch">Cezveden, makineden.</h2>
+      <span style="width:64px;height:2px;background:var(--terracotta-600);border-radius:999px"></span>
+    </div>
+    <p style="font-size:14px;line-height:1.55;color:var(--text-muted);max-width:34ch;margin:0">Günün çekirdeği panoda yazılı. Tüm demlemeler yanında bir bardak su ve lokumla gelir.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:20px">
+
+    <!-- tile 1 -->
+    <div style="background:#474225;border-radius:var(--radius-tile);overflow:hidden;display:flex;flex-direction:column">
+      <span class="tile-media" style="background:#474225"><span class="tile-media__ph">fotoğraf alanı</span><img loading="lazy" decoding="async" src="assets/photography/u1.png" alt="Türk Kahveleri" onerror="this.remove()"></span>
+      <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-100)">Türk Kahveleri</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:rgba(255,252,246,.75)">CEZVE</span>
+      </div>
+      <div style="background:var(--cream-50);margin:0 8px 8px;border-radius:var(--radius-md);padding:18px 18px 16px;display:flex;flex-direction:column;gap:14px;flex:1">
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px">
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Sade Türk Kahvesi</span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">45 ₺</span></li>
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Orta Türk Kahvesi</span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">45 ₺</span></li>
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Dibek Kahvesi</span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">55 ₺</span></li>
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Menengiç Kahvesi</span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">55 ₺</span></li>
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Mırra <span style="color:var(--text-muted);font-size:13px">(acı, koyu)</span></span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">60 ₺</span></li>
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Sütlü Türk Kahvesi</span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">50 ₺</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- tile 2 -->
+    <div style="background:#af4f25;border-radius:var(--radius-tile);overflow:hidden;display:flex;flex-direction:column">
+      <span class="tile-media" style="background:#af4f25"><span class="tile-media__ph">fotoğraf alanı</span><img loading="lazy" decoding="async" src="assets/photography/u2.png" alt="Filtre & Espresso" onerror="this.remove()"></span>
+      <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-100)">Filtre & Espresso</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:rgba(255,252,246,.75)">V60</span>
+      </div>
+      <div style="background:var(--cream-50);margin:0 8px 8px;border-radius:var(--radius-md);padding:18px 18px 16px;display:flex;flex-direction:column;gap:14px;flex:1">
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px">
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Espresso</span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">40 ₺</span></li>
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Americano</span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">45 ₺</span></li>
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Flat White</span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">65 ₺</span></li>
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">V60 Demleme <span style="color:var(--text-muted);font-size:13px">(günün çekirdeği)</span></span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">70 ₺</span></li>
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Cortado</span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">55 ₺</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- tile 3 -->
+    <div style="background:#d28b14;border-radius:var(--radius-tile);overflow:hidden;display:flex;flex-direction:column">
+      <span class="tile-media tile-media--dark" style="background:#d28b14"><span class="tile-media__ph">fotoğraf alanı</span><img loading="lazy" decoding="async" src="assets/photography/u3.png" alt="Yanında" onerror="this.remove()"></span>
+      <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-900)">Yanında</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:rgba(34,31,19,.6)">MUTFAK</span>
+      </div>
+      <div style="background:var(--cream-50);margin:0 8px 8px;border-radius:var(--radius-md);padding:18px 18px 16px;display:flex;flex-direction:column;gap:14px;flex:1">
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px">
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Lokum <span style="color:var(--text-muted);font-size:13px">(2 adet)</span></span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">15 ₺</span></li>
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Ev Yapımı Kurabiye</span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">25 ₺</span></li>
+          <li style="display:flex;align-items:baseline;gap:10px"><span style="font-size:15px;color:var(--ink-800)">Fıstık Ezmeli Kağıt Helva</span><span style="flex:1;border-bottom:1px dotted rgba(34,31,19,.28)"></span><span style="font-family:var(--font-mono);font-size:14px;color:var(--ink-900);white-space:nowrap">30 ₺</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ===== BAND (foam macro) ===== -->
+<div class="band"><span class="band__ph">fotoğraf alanı</span><img loading="lazy" decoding="async" src="assets/photography/u5.png" alt="Türk kahvesi köpüğü makro" onerror="this.remove()"></div>
+
+<!-- ===== HAKKIMIZDA ===== -->
+<section id="hakkimizda" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr))">
+  <div style="background:var(--surface-warm);padding:clamp(48px,6vw,88px) clamp(28px,4vw,56px);display:flex;flex-direction:column;gap:24px;justify-content:center">
+    <span class="eyebrow eyebrow--cream">Hakkımızda</span>
+    <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3.2vw,40px);line-height:1.04;letter-spacing:-.02em;color:var(--cream-50);margin:0;max-width:24ch">Kıvam, bir kahvenin en doğru anını anlatır — ne eksik ne fazla.</h2>
+    <svg width="132" height="13.2" viewBox="0 0 120 12" preserveAspectRatio="none" fill="none" style="display:block;overflow:visible"><path d="M2 8C10 2.5 16 2.5 24 7.5S38 12 46 7 60 1.5 68 6.5 82 11.5 90 6.5 104 1.5 118 7" stroke="var(--mustard-500)" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <p style="font-size:16px;line-height:1.6;color:var(--cream-200);margin:0;max-width:44ch">2019'da küçük bir dükkânda, tek bir cezveyle başladık. Amacımız basitti: Türk kahvesini hak ettiği özenle hazırlamak. Bugün çekirdeklerimizi tek tek seçiyor, közde geleneksel yöntemle demliyor, her fincanı elimizle kontrol ediyoruz.</p>
+    <p style="font-size:16px;line-height:1.6;color:var(--cream-100);margin:0;max-width:40ch">Hız değil kıvam peşindeyiz. Buraya bir kahve içmeye değil, biraz yavaşlamaya gelin.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+      <span class="badge badge--chip badge--cream">2019'dan beri</span>
+      <span class="badge badge--chip badge--mustard">Közde demleme</span>
+      <span class="badge badge--chip badge--lavender">Tek köken</span>
+    </div>
+  </div>
+  <div class="photo" style="min-height:560px;border-radius:0 0 var(--radius-arch) 0"><span class="photo__ph">fotoğraf alanı</span><img src="assets/photography/u4.png" alt="Közde cezveden fincana Türk kahvesi" onerror="this.remove()"></div>
+</section>
+
+<!-- ===== KONUM ===== -->
+<section id="konum" style="padding:clamp(48px,7vw,96px) clamp(20px,5vw,64px)">
+<div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(24px,4vw,48px);align-items:start">
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <span class="eyebrow">İletişim</span>
+    <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3.4vw,42px);line-height:.98;letter-spacing:-.02em;color:var(--ink-900);margin:0;max-width:14ch">Karaköy'de, deniz kenarında.</h2>
+    <div style="display:flex;flex-direction:column;gap:18px;border-top:1px solid var(--border-hairline);padding-top:20px">
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)">Adres</span><span style="font-size:15px;line-height:1.55;color:var(--ink-800);max-width:32ch">Kemankeş Karamustafa Paşa Mah. Mumhane Cad. No:14, Karaköy / İstanbul</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)">Saatler</span><span style="font-size:15px;color:var(--ink-800)">Her gün 08:00 – 23:00</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)">Telefon</span><span style="font-family:var(--font-mono);font-size:15px;color:var(--ink-800)">0212 000 00 00</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)">Instagram</span><a href="https://instagram.com/kivamkahve" target="_blank" rel="noopener" style="font-size:15px;color:var(--text-link)">@kivamkahve</a></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)">E-posta</span><a href="mailto:merhaba@kivamkahve.com" style="font-size:15px;color:var(--text-link)">merhaba@kivamkahve.com</a></div>
+    </div>
+    <div style="display:flex"><a href="https://www.google.com/maps/search/?api=1&query=Mumhane%20Caddesi%20No%3A14%20Karak%C3%B6y%20%C4%B0stanbul" target="_blank" rel="noopener" class="btn btn--primary"><span class="btn__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>Yol tarifi al</a></div>
+  </div>
+  <div style="position:relative">
+    <div class="photo" style="min-height:440px;border-radius:var(--radius-tile)"><span class="photo__ph">fotoğraf alanı</span><img src="assets/photography/u6.png" alt="Kıvam Kahve konumu — Kemankeş Karamustafa Paşa Mah., Karaköy" onerror="this.remove()"></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background:var(--ink-900);padding:clamp(40px,5vw,64px) clamp(20px,5vw,64px)">
+  <div data-footerrow style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;gap:32px;align-items:center">
+    <span style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-300)">Kıvam Kahve — Karaköy, İstanbul</span>
+    <span class="logo logo--cream"><span class="logo__name">KIVAM</span><span class="logo__tag">TAZE KAVRUM</span></span>
+    <div style="display:flex;flex-direction:column;gap:6px;justify-self:end;text-align:right">
+      <span style="font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--cream-100)">"Kıvamında bir fincan."</span>
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-300)">© 2026 Kıvam Kahve</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script is:inline>
+/* ===== Kıvam hero — scroll-scrub coffee pour =====================
+   Ported 1:1 from the Claude Design DC logic component to vanilla JS.
+   Scroll drives: video scrub, process-card reveals, progress rail,
+   stage label and percent. Mobile drops the scrub and loops the pour. */
+(function () {
+  var $  = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  var track = $('[data-track]'), stage = $('[data-stage]'), video = $('[data-video]'),
+      plate = $('[data-plate]'), scrim = $('[data-scrim]'), mark = $('[data-mark]'),
+      column = $('[data-column]'), copy = $('[data-copy]'), lead = $('[data-lead]'),
+      title = $('[data-title]'), ctaRow = $('[data-cta]'), cards = $('[data-cards]'),
+      rail = $('[data-rail]'), stageLabel = $('[data-stagelabel]'), percent = $('[data-percent]'),
+      bar = $('[data-bar]'), hint = $('[data-hint]'), nav = $('#nav'), footerRow = $('[data-footerrow]');
+  var cardEls = $$('[data-card]'), fillEls = $$('[data-fill]'), tickEls = $$('[data-tick]');
+
+  if (!track) return;
+
+  var stages = [
+    [0.00, "Cezve ısınıyor"], [0.13, "Çekirdek öğütüldü"], [0.26, "Su ekleniyor"],
+    [0.39, "Köpük kabarıyor"], [0.52, "Dökülüyor"], [0.65, "Fincan doluyor"],
+    [0.80, "Köpük oturuyor"], [0.92, "Kıvamında"]
+  ];
+
+  var raf = 0, target = 0, current = 0, wantT = null;
+  var isMobile = window.innerWidth < 760;
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (video) { video.muted = true; video.pause(); }
+
+  function tick() {
+    raf = 0;
+    var diff = target - current;
+    current += Math.abs(diff) < 0.0008 ? diff : diff * 0.34;
+    paint(current);
+    if (video && video.duration && !reduced && !isMobile) {
+      var end = video.duration - 0.04;
+      var t = current * end;
+      wantT = t;
+      if (!video.seeking && Math.abs(video.currentTime - t) > 0.012) { try { video.currentTime = t; } catch (e) {} }
+    }
+    var seekPending = video && wantT != null && Math.abs(video.currentTime - wantT) > 0.012;
+    if (Math.abs(target - current) > 0.0008 || seekPending) raf = window.requestAnimationFrame(tick);
+  }
+
+  function onScroll() {
+    if (!track) return;
+    var total = track.offsetHeight - window.innerHeight;
+    target = total > 0 ? Math.min(1, Math.max(0, -track.getBoundingClientRect().top / total)) : 0;
+    if (!raf) raf = window.requestAnimationFrame(tick);
+  }
+
+  function onResize() { layout(); onScroll(); }
+
+  function mobile() {
+    var w = window.innerWidth, m = w < 760;
+    isMobile = m;
+    var mediaH = "clamp(230px,40vh,400px)";
+    [video, plate].forEach(function (el) {
+      if (!el) return;
+      el.style.width = m ? "calc(100% - 28px)" : "58%";
+      el.style.height = m ? mediaH : "100%";
+      el.style.top = m ? "14px" : "0";
+      el.style.right = m ? "14px" : "0";
+      el.style.borderRadius = m ? "var(--radius-tile)" : "var(--radius-arch) 0 0 0";
+      el.style.objectPosition = "center";
+    });
+    if (video) {
+      video.loop = m;
+      video.style.opacity = 1;
+      if (m && !reduced) { if (video.paused) { try { video.currentTime = 0; video.play(); } catch (e) {} } }
+      else if (!video.paused) video.pause();
+    }
+    if (track) track.style.height = m ? "auto" : "720vh";
+    if (stage) { stage.style.position = m ? "relative" : "sticky"; stage.style.height = m ? "auto" : "100vh"; stage.style.minHeight = m ? "100svh" : ""; }
+    if (scrim) {
+      scrim.style.display = m ? "none" : "block";
+      scrim.style.background = m ? "none" : "linear-gradient(100deg,var(--cream-200) 0%,var(--cream-200) 34%,rgba(247,237,222,.72) 42%,rgba(247,237,222,0) 52%)";
+    }
+    if (mark) { mark.style.display = m ? "flex" : "none"; mark.style.top = "32px"; }
+    if (hint) hint.style.display = m ? "none" : "flex";
+    if (bar && bar.parentElement) bar.parentElement.style.display = m ? "none" : "block";
+    if (nav) nav.style.display = m ? "none" : "flex";
+    if (rail) rail.style.display = m ? "none" : "flex";
+    if (column) {
+      column.style.justifyContent = m ? "flex-start" : "space-between";
+      column.style.paddingTop = m ? "calc(" + mediaH + " + 32px)" : "clamp(24px,8vh,120px)";
+      column.style.height = m ? "auto" : "100%";
+      column.style.gap = m ? "16px" : "24px";
+      column.style.paddingLeft = m ? "20px" : "clamp(20px,5vw,64px)";
+      column.style.paddingRight = m ? "20px" : "clamp(20px,5vw,64px)";
+      column.style.paddingBottom = m ? "26px" : "46px";
+    }
+    if (copy) copy.style.maxWidth = m ? "none" : "min(46vw,560px)";
+    if (cards) {
+      cards.style.gridTemplateColumns = m ? (window.innerHeight >= 720 ? "repeat(2,1fr)" : "repeat(4,1fr)") : "repeat(auto-fit,minmax(190px,1fr))";
+      cards.style.gap = m ? "10px" : "16px";
+      cards.style.marginTop = m ? "auto" : "0";
+    }
+    if (copy) { copy.style.overflow = m ? "hidden" : ""; copy.style.flex = m ? "1 1 auto" : ""; copy.style.minHeight = "0"; }
+    if (title) {
+      title.style.fontSize = m ? "clamp(30px,8.4vw,46px)" : "clamp(38px,min(5.6vw,8.4vh),82px)";
+      title.style.maxWidth = m ? "14ch" : "11ch";
+    }
+    if (ctaRow) {
+      ctaRow.style.gap = m ? "10px" : "16px";
+      ctaRow.style.flexWrap = m ? "nowrap" : "wrap";
+      $$("a,button", ctaRow).forEach(function (b) {
+        b.style.padding = m ? "13px 15px" : "";
+        b.style.fontSize = m ? "11px" : "";
+        b.style.flex = m ? "1 1 0" : "";
+        b.style.whiteSpace = m ? "nowrap" : "";
+      });
+    }
+    if (footerRow) {
+      footerRow.style.gridTemplateColumns = m ? "1fr" : "1fr auto 1fr";
+      footerRow.style.gap = m ? "18px" : "32px";
+      footerRow.style.justifyItems = m ? "start" : "";
+      var tail = footerRow.lastElementChild;
+      if (tail) { tail.style.justifySelf = m ? "start" : "end"; tail.style.textAlign = m ? "left" : "right"; }
+    }
+    return m;
+  }
+
+  function layout() {
+    var h = window.innerHeight;
+    var m = mobile();
+    var compact = m || h < 760;
+    var tight = m ? h < 780 : h < 620;
+    cardEls.forEach(function (el) {
+      var inner = el.firstElementChild;
+      var body = el.querySelector("p");
+      var num = el.querySelector("span");
+      if (inner) { inner.style.padding = compact ? "12px 14px" : "18px"; inner.style.gap = compact ? "4px" : "8px"; }
+      if (body) body.style.display = compact ? "none" : "block";
+      if (num) num.style.fontSize = compact ? "22px" : "34px";
+    });
+    if (lead) lead.style.display = tight ? "none" : "block";
+    if (copy) copy.style.gap = compact ? "14px" : "22px";
+    var badge = copy && copy.children[1];
+    if (badge) badge.style.display = tight ? "none" : "flex";
+  }
+
+  function paint(p) {
+    var steps = [0.08, 0.30, 0.52, 0.74];
+    cardEls.forEach(function (el, i) {
+      var t = (reduced || isMobile) ? 1 : Math.min(1, Math.max(0, (p - steps[i]) / 0.1));
+      if (el) { el.style.opacity = t; el.style.transform = "translateY(" + (1 - t) * 22 + "px)"; }
+      var f = fillEls[i];
+      if (f) {
+        var span = (i < 3 ? steps[i + 1] : 1) - steps[i];
+        var g = (reduced || isMobile) ? 1 : Math.min(1, Math.max(0, (p - steps[i]) / span));
+        f.style.width = (g * 100).toFixed(1) + "%";
+      }
+    });
+    if (bar) bar.style.width = (p * 100).toFixed(2) + "%";
+    if (hint) hint.style.opacity = p > 0.03 ? 0 : 1;
+    if (percent) percent.textContent = String(Math.round(p * 100)).padStart(2, "0") + "%";
+    tickEls.forEach(function (el, i) {
+      if (!el) return;
+      var reached = p >= stages[i][0];
+      var isCur = reached && (i === stages.length - 1 || p < stages[i + 1][0]);
+      el.style.background = reached ? (isCur ? "var(--terracotta-600)" : "var(--mustard-500)") : "rgba(34,31,19,.18)";
+      el.style.width = isCur ? "34px" : reached ? "24px" : "16px";
+    });
+    if (stageLabel) {
+      var label = stages[0][1];
+      for (var s = 0; s < stages.length; s++) if (p >= stages[s][0]) label = stages[s][1];
+      if (stageLabel.textContent !== label) stageLabel.textContent = label;
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onResize);
+  window.addEventListener("load", onResize);
+  if (typeof ResizeObserver !== "undefined") {
+    var ro = new ResizeObserver(function () { onResize(); });
+    ro.observe(document.documentElement);
+    if (stage) ro.observe(stage);
+  }
+  [0, 60, 300].forEach(function (d) { window.setTimeout(onResize, d); });
+  layout();
+
+  if (video) {
+    var reveal = function () { video.style.opacity = 1; };
+    video.addEventListener("loadedmetadata", onScroll);
+    video.addEventListener("seeked", reveal, { once: true });
+    video.addEventListener("loadeddata", function () { onScroll(); window.setTimeout(reveal, 400); }, { once: true });
+    video.addEventListener("error", reveal, { once: true });
+    window.setTimeout(reveal, 2500);
+  }
+  onScroll();
+})();
+</script>
+</body>
+</html>
